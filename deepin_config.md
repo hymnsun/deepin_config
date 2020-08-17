@@ -8,11 +8,12 @@
 --------------
 ## 软件
 ### 基础软件
+- 自带编辑器dedit
 - 讯飞输入法，英文键盘和讯飞 切换输入法ctrl+space
 - 微信 TIM
 - wps
 - 迅雷
-- 向日葵
+- 向日葵是
 - 网易云音乐
 - aria2
     - install aria2:`sudo apt-get install aria2`
@@ -78,6 +79,26 @@
 - Show line numbers          // right click 
 - 设置python intepreter
 
+#### v2Ray
+- ~~download `v2ray-linux-64.zip` in [Github](https://github.com/v2ray/v2ray-core/releases/)~~
+- ~~download `go.sh` via `wget https://install.direct/go.sh`~~
+- ~~在上述两个文件同一目录下，run `sudo bash go.sh --local ./v2ray-linux-64.zip`~~
+![https://github.com/v2fly/fhs-install-v2ray](v2ray_conf.png)
+
+    这种方法配置文件分成了多个`/usr/local/etc/v2ray`
+    
+
+- 启动 `systemctl start v2ray`
+
+- 停止 `systemctl stop v2ray`
+
+- 重启 `systemctl restart v2ray`
+
+- 开机自启 `systemctl enable v2ray`
+
+- 查看是否启动v2ray `service v2ray status`
+
+
 
 
 #### texlive
@@ -116,6 +137,23 @@
     ssh-keygen -t rsa -C "XXXXXXXXX@163.com"
     key dir：/home/hymnsun/.ssh/id_rsa
     ```
-### blog
+### [blog](https://blog.csdn.net/Arisstz/article/details/80708851)
+- 安装nodejs和npm
+    ```
+    sudo apt-get install nodejs npm
+    ```
+- 配置环境变量
+- 
+
 
 ### python_basic
+
+-------
+## BUG
+- 无法安装texstudio for linux 导致系统锁死
+    >  sudo apt --fix-broken install
+
+- 08/17 in MSI 卡死，键盘没反应，鼠标延迟高卡死，怀疑在后台更新系统
+
+
+## what to do
