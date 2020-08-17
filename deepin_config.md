@@ -1,11 +1,11 @@
-
-# deepin v20体验 {.ignore}
+# deepin v20体验 {ignore}
 [TOC]
---------------
 
-## 设置
+### 设置
+- 终端ctrl+C不要修改
 - 系统字体为Noto Serif CJK JP
 
+--------------
 ## 软件
 ### 基础软件
 - 讯飞输入法，英文键盘和讯飞 切换输入法ctrl+space
@@ -37,25 +37,52 @@
     ```
 - conda 更换国内源
 
-    修改 ~/.condarc文件，复制USTC源路径
-    ```
-    channels:
-        - https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
-        - https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
-        - https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
-    ssl_verify: true
-    ```
+    - 修改 ~/.condarc文件，复制USTC源路径
+        ```
+        channels:
+            - https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+            - https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+            - https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
+            - defaults
+        ssl_verify: true
+        ```
+    - terminel
+        ```
+        conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+        conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+        conda config --set show_channel_urls yes
+        ```
+
+    - 恢复默认源：
+        `conda config --remove-key channels`
+
 - 修改jupyter notebook工作路径：
-    `cd ~`
-    `mkdir jupytercode`
-    `vi /home/hymnsun/.jupyter/jupyter_notebook_config.py`
+    ```
+    jupyter notebook --generate-config
+    cd ~
+    mkdir jupytercode
+    vi /home/hymnsun/.jupyter/jupyter_notebook_config.py
+    ```
+    c.NotebookApp.notebook_dir =''
+
+- [jupyter notebook 添加其它环境kernel](https://blog.csdn.net/wyz6666/article/details/83314761)
+    ```
+    conda activate tf10
+    which python       // 当前环境python路径
+    sudo <python dir> -m ipykernel install --name <kernel_name>
+    ```
+
 #### pycharm
+- tips of the day
 - 设置ctrl+鼠标放大
+- Show line numbers          // right click 
 - 设置python intepreter
 
 
 
 #### texlive
+- 中文环境设置
+- texstudio安装报错
 
 #### chrome
 #### vscode
@@ -66,14 +93,13 @@
 
 
         
-
+-------------
 ## LINUX 指令
-
+    新建一个md文件
     pwd 显示当前路径
     ls -a 显示所有文件
     ls -la 且显示权限等详细信息
     mkdir <dir_name> 创建目录
-    
 
 ### VIM基本指令
     三种模式：
@@ -82,6 +108,8 @@
 
 ### docker的配置
 
+
+-------------
 ## Git管理
 - git 连接github：
     ```
@@ -91,11 +119,3 @@
 ### blog
 
 ### python_basic
-
-
-## BUG
-- 无法安装texstudio for LINUX
-
-
-## what to do
-- 梯子
