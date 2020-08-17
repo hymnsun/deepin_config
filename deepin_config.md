@@ -1,7 +1,7 @@
-[TOC]
-# deepin v20体验
---------------
 
+# deepin v20体验 {.ignore}
+[TOC]
+--------------
 
 ## 设置
 - 系统字体为Noto Serif CJK JP
@@ -14,6 +14,16 @@
 - 迅雷
 - 向日葵
 - 网易云音乐
+- aria2
+    - install aria2:`sudo apt-get install aria2`
+    - download aria2 file contain `.conf`,`.log`,`.session` file
+    - modify `.conf` file which links to download dir & RPC secret token
+    - run aria2 via `aria2c --conf-path='/home/hymnsun/aria2/aria2.conf'`
+    - download [AriaNg(front-end)](https://github.com/mayswind/AriaNg/releases) from Github.
+    - click `index.html` to fill in RPC secret token in AriaNg settings.
+    - download BaidunYun 
+
+`
 ### 工作软件
 #### anaconda
 - `conda info`
@@ -63,6 +73,7 @@
     ls -a 显示所有文件
     ls -la 且显示权限等详细信息
     mkdir <dir_name> 创建目录
+    
 
 ### VIM基本指令
     三种模式：
