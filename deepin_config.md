@@ -1,7 +1,7 @@
 # deepin v20体验 {ignore}
 [TOC]
 
-### 设置
+## 设置
 - 终端ctrl+C不要修改
 - 系统字体为Noto Serif CJK JP
 
@@ -83,22 +83,25 @@
 - ~~download `v2ray-linux-64.zip` in [Github](https://github.com/v2ray/v2ray-core/releases/)~~
 - ~~download `go.sh` via `wget https://install.direct/go.sh`~~
 - ~~在上述两个文件同一目录下，run `sudo bash go.sh --local ./v2ray-linux-64.zip`~~
+- 根据提示https://install.direct/go.sh已弃用
 ![https://github.com/v2fly/fhs-install-v2ray](v2ray_conf.png)
 
-    这种方法配置文件分成了多个`/usr/local/etc/v2ray`
+    这种方法配置文件分成了多个`/usr/local/etc/v2ray` 不会处理
     
-
-- 启动 `systemctl start v2ray`
-
-- 停止 `systemctl stop v2ray`
-
-- 重启 `systemctl restart v2ray`
-
-- 开机自启 `systemctl enable v2ray`
-
-- 查看是否启动v2ray `service v2ray status`
-
-
+- [**使用原来的go.sh文件**](https://www.280i.com/case/7935.html)
+    下载失败注意修改*DOWNLOAD_LINK=*
+    - run `sudo bash go.sh` in dir contains go.sh
+    - edit `config.json` in `/etc/v2ray/config.json` file which can copy from windows
+    ![](v2ray_file.png)
+    - 设置自启动，查看状态
+        ```
+        启动 `systemctl start v2ray`
+        停止 `systemctl stop v2ray`
+        重启 `systemctl restart v2ray`
+        开机自启 `systemctl enable v2ray`
+        查看状态 `service v2ray status`
+        ```
+    - 配置代理时报错？？？？
 
 
 #### texlive
