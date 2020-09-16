@@ -6,6 +6,7 @@
 ## 设置
 - 系统字体为Noto Serif CJK JP
 
+------
 ## 软件
 ### 基础软件
 - 讯飞输入法，英文键盘和讯飞 切换输入法ctrl+space
@@ -14,7 +15,7 @@
 - 迅雷
 - 向日葵
 - 网易云音乐
-- aria2
+- ~~aria2!~~
     - install aria2:`sudo apt-get install aria2`
     - download aria2 file contain `.conf`,`.log`,`.session` file
     - modify `.conf` file which links to download dir & RPC secret token
@@ -49,13 +50,25 @@
     `cd ~`
     `mkdir jupytercode`
     `vi /home/hymnsun/.jupyter/jupyter_notebook_config.py`
+
+
 #### pycharm
+- python脚本设置
+    ```
+    #!/usr/bin/python
+    # -*- coding: utf-8 -*-
+    ```
+
 - 设置ctrl+鼠标放大
 - 设置python intepreter
 
 
-
 #### texlive
+- install:`sudo apt-get install texstudio`
+- 中文字体复制安装到linux
+- texlive 缺少ctex 包
+- xelatex路径未识别
+
 
 #### chrome
 #### vscode
@@ -65,15 +78,19 @@
     
 
 
-        
+--------
 
 ## LINUX 指令
-
+    sudo apt-get install [software]
+    sudo apt-get remove [software]
+    sudo apt-get upgrade 更新已安装包
     pwd 显示当前路径
     ls -a 显示所有文件
     ls -la 且显示权限等详细信息
+    chmod u+x filename        修改可执行权限
     mkdir <dir_name> 创建目录
-    
+    which python
+
 
 ### VIM基本指令
     三种模式：
@@ -82,6 +99,8 @@
 
 ### docker的配置
 
+
+---
 ## Git管理
 - git 连接github：
     ```
@@ -92,10 +111,11 @@
 
 ### python_basic
 
-
+-------
 ## BUG
 - 无法安装texstudio for LINUX
 
-
+------
 ## what to do
 - 梯子
+- texstudio无法安装
