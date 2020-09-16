@@ -1,6 +1,6 @@
 # deepin v20体验 {ignore}
 [TOC]
-
+2020-09-16 停更，修改子文件。
 ## 设置
 - 终端ctrl+C不要修改
 - 系统字体为Noto Serif CJK JP
@@ -86,4 +86,3 @@
 ------
 ## what to do
 - 梯子
-- texstudio无法安装

@@ -30,6 +30,7 @@
 --------
 
 ## LINUX 指令
+    wget
     sudo apt-get install [software]
     sudo apt-get remove [software]
     sudo apt-get upgrade 更新已安装包
@@ -73,8 +74,8 @@
     >  sudo apt --fix-broken install
 
 - 08/17 in MSI 卡死，键盘没反应，鼠标延迟高卡死，怀疑在后台更新系统
+- [ ] texlive 无法更新包
 
 ------
 ## what to do
 - 梯子
-- texstudio无法安装
