@@ -23,8 +23,8 @@
     - click `index.html` to fill in RPC secret token in AriaNg settings.
     - download BaidunYun 
 
-`
-### 工作软件
+
+### [工作软件](./workware_conf.md)
 
 
 --------
