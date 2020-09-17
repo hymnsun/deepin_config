@@ -24,4 +24,4 @@
     ```
 - xelatex路径未识别【两台电脑均已解决】
 ![xelatex配置](./tex/texstudio_config.png)
-- 问题：[部分包不全，无法更新宏包](https://www.cnblogs.com/lzhu/p/10457162.html)
+- 问题：[部分包不全，无法更新宏包](https://www.cnblogs.com/lzhu/p/10457162.html) 在增加xelatex绝对路径后编译IEEE模板通过。

@@ -124,10 +124,10 @@
     - run `source ~/.bashrc` to make it work
     - test in terminal via `tex -v`
 - 测试{xeCJK}和包更新
-    - `sudo apt-get install texlive-xetex`      # 测试是否需要
+    - `sudo apt-get install texlive-xetex`               # 测试是否需要
     - `sudo apt-get install texlive-lang-chinese`        #{xeCJK}
     ![缺少CJK默认中文字体](./tex/cjk.png)
-    - 修改xelatex路径解决包识别
+    - **修改xelatex路径解决包识别** [这步特别重要]
     ![xelatex配置](./tex/texstudio_config.png)
 
 #### chrome
