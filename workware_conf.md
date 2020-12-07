@@ -1,6 +1,5 @@
-[TOC]
-
-#### anaconda
+## 工作软件
+### 1 anaconda
 - `conda info`
     安装路径： /home/hymnsun/anaconda3
 - `conda env list`
@@ -44,7 +43,7 @@
     `vi /home/hymnsun/.jupyter/jupyter_notebook_config.py`
         c.NotebookApp.notebook_dir =''
 
-#### pycharm
+### 2 Pycharm
 - python脚本设置
     ```
     #!/usr/bin/python
@@ -64,31 +63,70 @@
     - Show line numbers          // right click 
     - 设置python intepreter
 
-#### v2Ray
-- ~~download `v2ray-linux-64.zip` in [Github](https://github.com/v2ray/v2ray-core/releases/)~~
-- ~~download `go.sh` via `wget https://install.direct/go.sh`~~
-- ~~在上述两个文件同一目录下，run `sudo bash go.sh --local ./v2ray-linux-64.zip`~~
-- 根据提示https://install.direct/go.sh已弃用
-![https://github.com/v2fly/fhs-install-v2ray](./v2ray/v2ray_conf.png)
+### 3 V2Ray
+- [log](./config_log.md)
+- [脚本安装 新教程github](https://github.com/v2fly/fhs-install-v2ray)
+- run `bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)`
 
-    这种方法配置文件分成了多个`/usr/local/etc/v2ray` 不会处理
-    
-- [**使用原来的go.sh文件**](https://www.280i.com/case/7935.html)
-    下载失败注意修改*DOWNLOAD_LINK=*
-    - run `sudo bash go.sh` in dir contains go.sh
-    - edit `config.json` in `/etc/v2ray/config.json` file which can copy from windows
-    ![v2ray](./v2ray/v2ray_file.png)
-    - 设置自启动，查看状态
-        ```
-        启动 `systemctl start v2ray`
-        停止 `systemctl stop v2ray`
-        重启 `systemctl restart v2ray`
-        开机自启 `systemctl enable v2ray`
-        查看状态 `service v2ray status`
-        ```
-    - 配置代理时报错？？？？
+- 配置config.json,文件在`deepin_config/V2ray/config_deault.json`,替换服务器ip和端口，修改完成后重命名为`config.json`
+    ```
+    {
+    "inbounds": [{
+        "port": listen port, // number 
+        "listen": "127.0.0.1",
+        "protocol": "socks",
+        "settings": {
+        "udp": true
+        }
+    }],
+    "outbounds": [{
+        "protocol": "vmess",
+        "settings": {
+        "vnext": [{
+            "address": "your server ip", 
+            "port": server port,
+            "users": [
+                { 
+                    "id": "server id " ,
+                    "alterId": server alterid
+                }
+            ]
+        }]
+        }
+    },{
+        "protocol": "freedom",
+        "tag": "direct",
+        "settings": {}
+    }],
+    "routing": {
+        "domainStrategy": "IPOnDemand",
+        "rules": [{
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "direct"
+        }]
+    }
+    }
+    ```
+- 将上述配置完成的`config.json`文件替换脚本安装默认生成的`config.json`
+    - 进入配置完成的'config.json'目录下打开终端
+    - run `cp config.json /usr/local/etc/v2ray/config.json` 后会替换默认的配置文件
 
-#### texlive2020
+- 启动v2ray并设置开机重启，执行以下两条命令即可  
+    - 开机自启 `systemctl enable v2ray`
+    - 启动 `systemctl start v2ray`
+    - 其他命令
+        - 停止 `systemctl stop v2ray`
+        - 重启 `systemctl restart v2ray`  
+        - 查看状态 `service v2ray status`
+
+- vray默认不代理流量，所以需要配置代理
+    - 火狐浏览器代理,sock5
+    - 谷歌浏览器代理，貌似是系统全局代理
+    - 手动配置，socks,127.0.0.1:listen port
+    - 谷歌浏览器安装`SwitchyOmega`插件，配置代理以及自动代理PAC,关闭系统全局代理
+
+### 4 Texlive2020
 - [error log](./config_log.md)
 - [linux完全卸载texlive](https://blog.csdn.net/qq_40199232/article/details/106505730)
     ```
@@ -127,11 +165,23 @@
     - `sudo apt-get install texlive-xetex`               # 测试是否需要
     - `sudo apt-get install texlive-lang-chinese`        #{xeCJK}
     ![缺少CJK默认中文字体](./tex/cjk.png)
-    - **修改xelatex路径解决包识别** [这步特别重要]
+    - **修改xelatex路径解决包识别** [可选]
     ![xelatex配置](./tex/texstudio_config.png)
+    - 模板
+        ```
+        \documentclass{article}
+        \usepackage{xeCJK}
 
-#### chrome
-#### vscode
+        \begin{document}
+            hello, \LaTeX{}  
+            
+            中国
+        \end{document}
+        ```
+
+### 5 VScode
 - ctrl+shift+K 删除当前行
 - alt+鼠标左键 选中多行
 - 插件：MPE
+- 中文模式下不能拖选
+

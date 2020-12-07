@@ -25,3 +25,12 @@
 - xelatex路径未识别【两台电脑均已解决】
 ![xelatex配置](./tex/texstudio_config.png)
 - 问题：[部分包不全，无法更新宏包](https://www.cnblogs.com/lzhu/p/10457162.html) 在增加xelatex绝对路径后编译IEEE模板通过。
+
+## ~~aria2!~~
+- install aria2:`sudo apt-get install aria2`
+- download aria2 file contain `.conf`,`.log`,`.session` file
+- modify `.conf` file which links to download dir & RPC secret token
+- run aria2 via `aria2c --conf-path='/home/hymnsun/aria2/aria2.conf'`
+- download [AriaNg(front-end)](https://github.com/mayswind/AriaNg/releases) from Github.
+- click `index.html` to fill in RPC secret token in AriaNg settings.
+- download BaidunYun 
