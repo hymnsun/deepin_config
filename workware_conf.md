@@ -64,55 +64,35 @@
     - 设置python intepreter
 
 ### 3 V2Ray
-- [log](./config_log.md)
+- 代理原理
+    ```
+    {浏览器} <--(socks)--> {V2Ray 客户端 inbound <-> V2Ray 客户端 outbound} <--(VMess)-->  {V2Ray 服务器 inbound <-> V2Ray 服务器 outbound} <--(Freedom)--> {目标网站}
+    ``` 
+- 需要一台具有公网ip的外网服务器，同样需要安装v2ray，只是配置文件不同，配置模板在目录[deepin_config/V2ray/server_config.json](./v2ray/server_config.json)
 - [脚本安装 新教程github](https://github.com/v2fly/fhs-install-v2ray)
 - run `bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)`
 
-- 配置config.json,文件在`deepin_config/V2ray/config_deault.json`,替换服务器ip和端口，修改完成后重命名为`config.json`
+- 运行该脚本自动安装以下文件：
     ```
-    {
-    "inbounds": [{
-        "port": listen port, // number 
-        "listen": "127.0.0.1",
-        "protocol": "socks",
-        "settings": {
-        "udp": true
-        }
-    }],
-    "outbounds": [{
-        "protocol": "vmess",
-        "settings": {
-        "vnext": [{
-            "address": "your server ip", 
-            "port": server port,
-            "users": [
-                { 
-                    "id": "server id " ,
-                    "alterId": server alterid
-                }
-            ]
-        }]
-        }
-    },{
-        "protocol": "freedom",
-        "tag": "direct",
-        "settings": {}
-    }],
-    "routing": {
-        "domainStrategy": "IPOnDemand",
-        "rules": [{
-        "type": "field",
-        "ip": ["geoip:private"],
-        "outboundTag": "direct"
-        }]
-    }
-    }
+    installed: /usr/local/bin/v2ray
+    installed: /usr/local/bin/v2ctl
+    installed: /usr/local/share/v2ray/geoip.dat
+    installed: /usr/local/share/v2ray/geosite.dat
+    installed: /usr/local/etc/v2ray/config.json
+    installed: /var/log/v2ray/
+    installed: /var/log/v2ray/access.log
+    installed: /var/log/v2ray/error.log
+    installed: /etc/systemd/system/v2ray.service
+    installed: /etc/systemd/system/v2ray@.service
     ```
+
+- 配置客户端config.json,模板在[deepin_config/V2ray/client_config.json](./v2ray/client_config.json),替换服务器ip和端口，修改完成后重命名为`config.json`
+
 - 将上述配置完成的`config.json`文件替换脚本安装默认生成的`config.json`
     - 进入配置完成的'config.json'目录下打开终端
     - run `cp config.json /usr/local/etc/v2ray/config.json` 后会替换默认的配置文件
 
-- 启动v2ray并设置开机重启，执行以下两条命令即可  
+- 启动v2ray并设置开机重启，执行以下两条命令即可,修改config需要执行重启命令
     - 开机自启 `systemctl enable v2ray`
     - 启动 `systemctl start v2ray`
     - 其他命令
@@ -131,7 +111,9 @@
             - 创建火狐软链接 `/usr/bin`目录下：`sudo ln -s /usr/local/firefox/firefox /usr/bin/firefox`
             - `cd /usr/bin`
             - `ls -la firefox`
-
+- 遇到访问谷歌sorry问题
+    - 尝试替换服务器的hosts文件为ipv6
+    - ip可能被谷歌拉黑，更换vps
 
 ### 4 Texlive2020
 - [error log](./config_log.md)

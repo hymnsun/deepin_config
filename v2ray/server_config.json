@@ -1,0 +1,31 @@
+////////server
+{
+    "log": {
+      "loglevel": "warning",
+      "access": "/var/log/v2ray/access.log",
+      "error": "/var/log/v2ray/error.log"
+    },
+  
+    "inbounds": [
+      {
+        "port": 10100, // number,modify, same as client
+        "protocol": "vmess",
+        "settings": {
+          "clients": [
+            {
+              "id": "  ", // string, same as client
+              "level": 1,
+              "alterId": 53 // 1-100, same as client
+            }
+          ]
+        }
+      }
+    ],
+  
+    "outbounds": [
+        {
+          "protocol": "freedom",
+          "settings": {}
+        }
+    ]
+  }

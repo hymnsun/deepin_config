@@ -1,0 +1,90 @@
+// config.json of client
+{
+  "log": {
+    "loglevel": "warning",
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log"
+  },
+
+  "inbounds": [{
+    "port": 1080, // numner,e.g.:1080
+    "listen": "127.0.0.1",
+    "protocol": "socks",
+    "sniffing": {
+      "enabled": true,
+      "destOverride": ["http", "tls"]
+    },
+    "settings": {
+      "auth": "noauth"  //socks的认证设置，noauth 代表不认证，由于 socks 通常在客户端使用，所以这里不认证
+    }
+  }],
+
+  "outbounds": [{
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [{
+        "address": "server ip 1.2.3.4", // 
+        "port": 10100,  // number, same as server
+        "users": [
+            { 
+                "id": "generate by https://www.uuidgenerator.net/" ,  // same as server
+                "alterId": 53      // number,same as server
+            }
+        ]
+      }]
+    }
+  },
+  
+  {
+    "protocol": "freedom",
+    "tag": "direct",
+    "settings": {}
+  },
+
+  {
+    "protocol":"blackhole",
+    "settings":{},
+    "tag":"block"
+  } 
+
+],
+
+  "routing":{
+    "domainStrategy": "IPOnDemand",
+    "rules":[
+      /*
+      {
+        "type":"field",
+        "outboundTag": "block",
+        "domain":["googeadsserving.cn"]
+      },
+     */
+      {
+        "type":"field",
+        "outboundTag":"direct",
+        "domain":[
+          "baidu.com",
+          "bilibili.com",
+          "zhihu.com",
+          "jd.com"
+        ]
+      },
+
+      {
+        "type":"field",
+        "outboundTag": "direct",
+        "domain": ["geosite:cn"]
+      },
+
+      {
+        "type":"field",
+        "outboundTag": "direct",
+        "ip": [
+          "geoip:cn",
+          "geoip:private"
+        ]
+      }
+
+    ]
+  }
+}
