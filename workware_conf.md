@@ -121,10 +121,17 @@
         - 查看状态 `service v2ray status`
 
 - vray默认不代理流量，所以需要配置代理
-    - 火狐浏览器代理,sock5
-    - 谷歌浏览器代理，貌似是系统全局代理
-    - 手动配置，socks,127.0.0.1:listen port
+    - 系统手动配置代理:127.0.0.1:listen port
     - 谷歌浏览器安装`SwitchyOmega`插件，配置代理以及自动代理PAC,关闭系统全局代理
+    - 火狐浏览器同样可以安装插件，或者直接配置sock5代理
+        - 下载火狐浏览器`sudo apt install firefox` 提示软件源没有，linux增加源之后再学
+        - 浏览器下载火狐浏览器
+            - `tar -vxjf firefox.tar.bz2`
+            - 将火狐浏览器二进制文件夹移动到`/usr/local/`目录下：`mv firefox/ /usr/local/firefox/`
+            - 创建火狐软链接 `/usr/bin`目录下：`sudo ln -s /usr/local/firefox/firefox /usr/bin/firefox`
+            - `cd /usr/bin`
+            - `ls -la firefox`
+
 
 ### 4 Texlive2020
 - [error log](./config_log.md)

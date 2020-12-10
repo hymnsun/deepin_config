@@ -1,6 +1,7 @@
-## 2 LINUX 指令
+## 2 [LINUX 指令](https://www.runoob.com/linux/linux-command-manual.html) ls --help
 
-### cat,cd,ls,pwd
+
+### cat,nl,cd,ls,pwd
 ```
 pwd                             # Print Working Directory
 cd -                            # Back to latest dir 
@@ -53,7 +54,7 @@ rm -r folder
 ```
 
 ### vim nano dedit code 
-- vim
+- [vim](https://www.runoob.com/linux/linux-vim.html)
     - <kbd>i</kbd> : 输入文本
     - <kbd>Esc</kbd>
     - <kbd>shift</kbd> + <kbd>:</kbd>
@@ -85,15 +86,35 @@ chown [-R] username:groupname file
 
 ### user management
 
----
+
 ### others
-- install software
+- apt
     ```
     sudo apt[-get] install [software]
-    sudo apt-get remove [software]
-    sudo apt-get upgrade 更新已安装包
+    sudo apt remove [software]
+    apt search
+    apt show
+    sudo apt update
+    sudo apt upgrade               更新已安装包
     sudo dpkg -i [file_name.deb]
+    tar -xjvf [.tar.bz2]
     ```      
-- wget
+- 下载
+    - wget
+    - aria2
 
-        
+- 磁盘管理
+    - df -h  [目录或文件]            列出磁盘使用情况【已用、未用】
+    - du -h  [目录或文件]            列出已使用的磁盘空间
+    - mount
+    - umount
+    - 双卸载卸载其它系统挂载分区
+        ```
+        df -h
+        umount /dev/sda3
+        ```
+
+---
+## [3. shell](./shell.md)
+
+## 4. Ngnix & Apache 
