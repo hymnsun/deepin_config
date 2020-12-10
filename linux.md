@@ -86,7 +86,7 @@ chown [-R] username:groupname file
 
 ### user management
 
----
+
 ### others
 - apt
     ```
@@ -108,8 +108,13 @@ chown [-R] username:groupname file
     - du -h  [目录或文件]            列出已使用的磁盘空间
     - mount
     - umount
+    - 双卸载卸载其它系统挂载分区
+        ```
+        df -h
+        umount /dev/sda3
+        ```
 
-### shell
+---
+## [3. shell](./shell.md)
 
-
-### Ngnix & Apache 
+## 4. Ngnix & Apache 
